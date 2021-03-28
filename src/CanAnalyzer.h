@@ -58,6 +58,7 @@ class CanAnalyzer : public Analyzer2
   protected: // analysis functions
     void WaitFor7RecessiveBits();
     void InitSampleOffsets();
+    void InitFdSampleOffsets();
     void GetRawFrame();
     void AnalizeRawFrame();
     bool UnstuffRawFrameBit( BitState& result, U64& sample, bool reset = false );
@@ -67,6 +68,7 @@ class CanAnalyzer : public Analyzer2
     // ChunkedArray<ResultBubble>* mFrameBubbles;
 
     U32 mNumSamplesIn7Bits;
+    U32 mFdNumSamplesIn7Bits;
     U32 mRecessiveCount;
     U32 mDominantCount;
     U32 mRawFrameIndex;
@@ -76,6 +78,7 @@ class CanAnalyzer : public Analyzer2
     bool mAck;
 
     std::vector<U32> mSampleOffsets;
+    std::vector<U32> mFdSampleOffsets;
     std::vector<BitState> mRawBitResults;
     std::vector<BitState> mBitResults;
 
@@ -84,6 +87,7 @@ class CanAnalyzer : public Analyzer2
     std::vector<BitState> mArbitrationField;
     bool mStandardCan;
     bool mRemoteFrame;
+    bool mFDF;
     U32 mNumDataBytes;
     std::vector<BitState> mControlField;
     std::vector<BitState> mDataField;

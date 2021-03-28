@@ -21,6 +21,7 @@ class CanAnalyzerSettings : public AnalyzerSettings
 
     Channel mCanChannel;
     U32 mBitRate;
+    U32 mFdBitRate;
     bool mInverted;
 
     BitState Recessive();
